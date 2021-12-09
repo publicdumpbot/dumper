@@ -4,8 +4,8 @@ name: Dump
   pull_request:
   workflow_dispatch:
   push:
-  schedule:
-    - cron: '0/2 * * * * '
+  #schedule:
+  #  - cron: '0/2 * * * * '
 
 defaults:
   run:
