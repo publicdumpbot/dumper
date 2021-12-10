@@ -47,12 +47,12 @@ jobs:
               if [ $(wc -l < ${PUBLIC_DUMP_REQUEST_REPO_NAME}/dump_request_link.txt) -lt 4 ]; then echo "No More Dumps To Execute!" && exit 0 ; fi
               ROM_URL_INFO=$(sed -n '4p' ${PUBLIC_DUMP_REQUEST_REPO_NAME}/dump_request_link.txt)
               #pbl stands for public, pvt stands for private. Link would be in the form pbl:<link> / pvt:<link>
-              DUMP_TYPE=$(echo $ROM_URL_INFO | cut -d ":" -f 1)
-              ROM_URL=$(echo $ROM_URL_INFO | cut -d ":" -f 2)
-              CHAT_ID=$(echo $ROM_URL_INFO | cut -d ":" -f 3)
-              USER_ID=$(echo $ROM_URL_INFO | cut -d ":" -f 4)
-              USER_TAG=$(echo $ROM_URL_INFO | cut -d ":" -f 5)
-              USER_FIRST_NAME=$(echo $ROM_URL_INFO | cut -d ":" -f 6)
+              DUMP_TYPE=$(echo $ROM_URL_INFO | cut -d "!" -f 1)
+              ROM_URL=$(echo $ROM_URL_INFO | cut -d "!" -f 2)
+              CHAT_ID=$(echo $ROM_URL_INFO | cut -d "!" -f 3)
+              USER_ID=$(echo $ROM_URL_INFO | cut -d "!" -f 4)
+              USER_TAG=$(echo $ROM_URL_INFO | cut -d "!" -f 5)
+              USER_FIRST_NAME=$(echo $ROM_URL_INFO | cut -d "!" -f 6)
               sed -i '4d' ${PUBLIC_DUMP_REQUEST_REPO_NAME}/dump_request_link.txt
               echo ${ROM_URL} > CLEAN.txt && CLEAN=$(sed 's/^.*\///' CLEAN.txt) && CLEAN=$(echo "${CLEAN%.*}") && rm CLEAN.txt
               ROM_URL=$(echo ${ROM_URL} | sed s/'%0D'//) #bruhminus
