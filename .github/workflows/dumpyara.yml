@@ -1,5 +1,5 @@
 name: Dump
-##
+
 'on':
   pull_request:
   workflow_dispatch:
